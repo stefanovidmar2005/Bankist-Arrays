@@ -29,7 +29,20 @@ nav {
   align-items: center;
   padding: 0 2rem;
 }
-
+.btn {
+  border: 0;
+  padding: 1rem;
+  font-size: 1.8rem;
+  background-color: #333;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  opacity: 0.8;
+}
 .welcome {
   font-size: 1.9rem;
   font-weight: 500;

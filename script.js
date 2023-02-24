@@ -4,10 +4,10 @@
 
 // Data
 const account1 = {
-  owner: "Silvana Vidmar",
+  owner: "Stefano Vidmar",
   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
   interestRate: 1.2, // %
-  pin: 1111,
+  pin: 2005,
 
   movementsDates: [
     "2023-02-14T21:31:17.178Z",
@@ -96,6 +96,7 @@ const labelTimer = document.querySelector(".timer");
 
 const containerApp = document.querySelector(".app");
 const containerMovements = document.querySelector(".movements");
+const navigation = document.querySelector(".navigation");
 
 const btnHomePage = document.querySelector(".logo");
 
@@ -115,6 +116,16 @@ const inputClosePin = document.querySelector(".form__input--pin");
 const inputAmountLabel = document.querySelector(".form__label--loan");
 
 // APPLICATION
+
+const userDemo = document.createElement("button");
+userDemo.classList.add("btn");
+userDemo.innerHTML = "Demo Account";
+document.body.prepend(userDemo);
+userDemo.addEventListener("click", function () {
+  alert("username: sv password: 2005");
+  userDemo.remove();
+});
+
 let currentAccount, timer;
 
 // TODO: calculate Current Date
@@ -301,6 +312,8 @@ const logoutTimer = function () {
 btnLogin.addEventListener("click", function (e) {
   // this prevents the default behavior from taking place in this case the button is connected to a form therefore on click the default behavior of the link is to reload the page as an indication the form was submitted!
   e.preventDefault();
+  // removing the button that displays the demo account
+  userDemo.remove();
   // TIMER
   if (timer) clearInterval(timer); // this executes only in the second login functionality when another user logs in as the timer value is not set to that id
   timer = logoutTimer(); // here in the first log in the timer value is undefined as its decalred as a global variable
